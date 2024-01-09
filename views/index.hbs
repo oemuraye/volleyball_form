@@ -1,0 +1,33 @@
+<main>
+  {{> header title='List of Entries' admin='dashboard-admin'}}
+  <div class="container">
+    <div class="table-responsive">
+    <table class="table table-bordered   table-striped" style="margin-top:100px">
+      <thead class="table__head">
+        <tr class="winner__table">
+          <th>S/N</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Level</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#formInfo}}
+          <tr>
+            <td>{{id}}</td>
+            <td>{{firstname}} {{lastname}}</td>
+            <td>{{email}}</td>
+            <td>{{level}}</td>
+            <td class="text-center">
+              <a href="/show/{{id}}" class="btn btn-outline-info ">More Info <i class="fa fa-arrow-circle-right text-danger" aria-hidden="true"></i> </a>
+            </td>
+          </tr>
+          {{else}}
+          <p>No entries to display</p>
+          {{/formInfo}}
+        </tbody>
+    </table>
+    </div>
+  </div>
+</main>
