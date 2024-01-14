@@ -1,3 +1,6 @@
 export const homePage = (req, res) => {
-    res.render('index', { title: "Home" });
+    const errors = req.flash("error");
+    const formData = req.flash("formData")[0];
+
+    res.render('index', { title: "Home", errors, formData });
 }

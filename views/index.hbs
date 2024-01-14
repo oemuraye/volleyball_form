@@ -17,23 +17,23 @@
       <div class="container mt-3">
         <form>
           <div class="row jumbotron box8">
-            <div class="col-sm-6 form-group">
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="name-f">First Name</label>
               <input type="text" class="form-control" name="fname" id="name-f" placeholder="Enter your first name." required>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="name-l">Last name</label>
               <input type="text" class="form-control" name="lname" id="name-l" placeholder="Enter your last name." required>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="email">Email</label>
               <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." required>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="address-1">Address</label>
               <input type="address" class="form-control" name="Locality" id="address-1" placeholder="Locality/House/Street no." required>
             </div>
-            {{!-- <div class="col-sm-6 form-group">
+            {{!-- <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="Country">Country</label>
               <select class="form-control custom-select browser-default">
                 <option value="Afghanistan">Afghanistan</option>
@@ -282,19 +282,23 @@
                 <option value="Zimbabwe">Zimbabwe</option>
               </select>
             </div> --}}
-            <div class="col-sm-6 form-group">
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="Date">Date Of Birth</label>
               <input type="Date" name="dob" class="form-control" id="Date" placeholder="" required>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="sex">Gender</label>
               <select id="sex" class="form-control browser-default custom-select">
+                <option value="">choose Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-                <option value="unspesified">Unspecified</option>
               </select>
             </div>
-            <div class="col-sm-2 form-group">
+            <div class="col-md-12 mb-3 form-group">
+              <label for="image">Passport</label>
+              <input type="file" name="avatar" class="form-control" id="avatar" placeholder="" required>
+            </div>
+            <div class="col-sm-2 mb-3 form-group">
               <label for="cod">Country code</label>
               <select class="form-control browser-default custom-select">
                 <option data-countryCode="US" value="1" selected>USA (+1)</option>
@@ -515,16 +519,16 @@
                 <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
               </select>
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-4 mb-3 form-group">
               <label for="tel">Phone</label>
               <input type="tel" name="phone" class="form-control" id="tel" placeholder="Enter Your Contact Number." required>
             </div>
-            <div class="col-sm-12 d-flex align-items-center">
+            {{!-- <div class="col-sm-12 d-flex align-items-center">
               <input type="checkbox" class="form-check d-inline" id="chb" required>
               <label for="chb" class="form-check-label">&nbsp;I accept all terms and conditions.</label>
-            </div>
+            </div> --}}
 
-            <div class="col-sm-12 form-group mb-0 text-center">
+            <div class="col-sm-12 form-group mb-0  text-center">
               <button class="btn btn-primary float-right">Submit</button>
             </div>
 
