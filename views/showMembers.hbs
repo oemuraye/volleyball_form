@@ -1,0 +1,55 @@
+<div class="table-responsive container my-3">
+    <table class="table table-striped table-bordered border-white pb-5">
+        <thead>
+            <tr>
+                <th scope="col" class="table-icon">
+                    <img src="path/to/tableDot" alt="dot" width="30px" height="30px" />
+                </th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Phone No.</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-icon">
+                    <img src="path/to/tableDot" alt="dot" width="30px" height="30px" />
+                </td>
+                <td role="button" onclick="viewBusiness(userId)">User First Name</td>
+                <td role="button" onclick="viewBusiness(userId)">User Last Name</td>
+                <td role="button" onclick="viewBusiness(userId)">user@example.com</td>
+                <td>User Role</td>
+                <td>User Phone No.</td>
+                <td class="dropdown drop text-center" title="Click">
+                    <i role="button" class="fa fa-eye" data-toggle="dropdown" data-hover="dropdown" aria-expanded="true"></i>
+                    <div class="dropdown-menu drop-action">
+                        <span role="button" class="dropdown-item text-info" onclick="viewBusiness(userId)"> View </span>
+                        <span role="button" class="dropdown-item text-danger" onclick="deleteUser(userId)"> Delete </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-icon">
+                    <img src="path/to/tableDot" alt="dot" width="30px" height="30px" />
+                </td>
+                <td role="button" onclick="viewBusiness(userId)">User First Name</td>
+                <td role="button" onclick="viewBusiness(userId)">User Last Name</td>
+                <td role="button" onclick="viewBusiness(userId)">user@example.com</td>
+                <td>User Role</td>
+                <td>User Phone No.</td>
+                <td class="dropdown drop text-center" title="Click">
+                    <i role="button" class="fa fa-eye" data-toggle="dropdown" data-hover="dropdown" aria-expanded="true"></i>
+                    <div class="dropdown-menu drop-action">
+                        <span role="button" class="dropdown-item text-info" onclick="viewBusiness(userId)"> View </span>
+                        <span role="button" class="dropdown-item text-danger" onclick="deleteUser(userId)"> Delete </span>
+                    </div>
+                </td>
+            </tr>
+            <!-- Repeat the above block for each user in the loop -->
+            <!-- End of the loop -->
+        </tbody>
+    </table>
+</div>

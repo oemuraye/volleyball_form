@@ -1,0 +1,7 @@
+.reg-form input::placeholder {
+    color: #c0c0c0;
+}
+.reg-form input:focus {
+    box-shadow: none;
+}
+

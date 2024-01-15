@@ -33,10 +33,14 @@ const playerSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  // occupation: {
-  //   type: String,
-  //   required: true,
-  // },
+  whatsapp_number: {
+    type: Number,
+    required: true,
+  },
+  occupation: {
+    type: String,
+    required: true,
+  },
 });
 
 export default mongoose.model("Player", playerSchema);

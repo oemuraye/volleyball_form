@@ -1,8 +1,6 @@
-<main>
-  {{> header title='S&T BARRACKS VOLLEY CLUB (STC) BENIN' admin='dashboard-admin'}}
-  
+<main>  
   <div class="container card my-5">
-  <form action="/create" method="post" class="mt-2">
+  <form action="/register" method="post" enctype="multipart/form-data" class="mt-2">
     <div class="form-container container">
       <hr />
       <h4 class="text-info">
@@ -12,26 +10,29 @@
       </h4>
       <hr />
 
-      {{> messages }}
+      {{> flash }}
 
-      <div class="container mt-3">
-        <form>
+      <div class="container reg-form mt-3">
           <div class="row jumbotron box8">
             <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="name-f">First Name</label>
-              <input type="text" class="form-control" name="fname" id="name-f" placeholder="Enter your first name." required>
+              <input type="text" class="form-control" value="{{formData.first_name}}" name="first_name" id="name-f" placeholder="Enter your first name" required>
             </div>
             <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="name-l">Last name</label>
-              <input type="text" class="form-control" name="lname" id="name-l" placeholder="Enter your last name." required>
+              <input type="text" class="form-control" value="{{formData.last_name}}" name="last_name" id="name-l" placeholder="Enter your last name" required>
+            </div>
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <label for="name-m">Middle name</label>
+              <input type="text" class="form-control" value="{{formData.middle_name}}" name="middle_name" id="name-m" placeholder="Enter your middle name (if any)">
             </div>
             <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." required>
+              <input type="email" class="form-control" value="{{formData.email}}" name="email" id="email" placeholder="Enter your email" required>
             </div>
             <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="address-1">Address</label>
-              <input type="address" class="form-control" name="Locality" id="address-1" placeholder="Locality/House/Street no." required>
+              <input type="address" class="form-control" value="{{formData.address}}" name="address" id="address-1" placeholder="Locality/House/Street no" required>
             </div>
             {{!-- <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="Country">Country</label>
@@ -283,27 +284,18 @@
               </select>
             </div> --}}
             <div class="col-md-6 col-sm-12 mb-3 form-group">
-              <label for="Date">Date Of Birth</label>
-              <input type="Date" name="dob" class="form-control" id="Date" placeholder="" required>
-            </div>
-            <div class="col-md-6 col-sm-12 mb-3 form-group">
               <label for="sex">Gender</label>
-              <select id="sex" class="form-control browser-default custom-select">
-                <option value="">choose Gender</option>
+              <select id="sex" name="gender" class="form-control browser-default custom-select">
+                <option value="none">choose Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </div>
-            <div class="col-md-12 mb-3 form-group">
-              <label for="image">Passport</label>
-              <input type="file" name="avatar" class="form-control" id="avatar" placeholder="" required>
-            </div>
-            <div class="col-sm-2 mb-3 form-group">
+            {{!-- <div class="col-sm-2 mb-3 form-group">
               <label for="cod">Country code</label>
-              <select class="form-control browser-default custom-select">
-                <option data-countryCode="US" value="1" selected>USA (+1)</option>
+              <select name="country_code" class="form-control browser-default custom-select">
+                <option data-countryCode="US" value="1">USA (+1)</option>
                 <option data-countryCode="GB" value="44">UK (+44)</option>
-
                 <option disabled="disabled">Other Countries</option>
                 <option data-countryCode="DZ" value="213">Algeria (+213)</option>
                 <option data-countryCode="AD" value="376">Andorra (+376)</option>
@@ -445,7 +437,7 @@
                 <option data-countryCode="NZ" value="64">New Zealand (+64)</option>
                 <option data-countryCode="NI" value="505">Nicaragua (+505)</option>
                 <option data-countryCode="NE" value="227">Niger (+227)</option>
-                <option data-countryCode="NG" value="234">Nigeria (+234)</option>
+                <option data-countryCode="NG" value="234" selected>Nigeria (+234)</option>
                 <option data-countryCode="NU" value="683">Niue (+683)</option>
                 <option data-countryCode="NF" value="672">Norfolk Islands (+672)</option>
                 <option data-countryCode="NP" value="670">Northern Marianas (+670)</option>
@@ -518,22 +510,44 @@
                 <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                 <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
               </select>
-            </div>
-            <div class="col-sm-4 mb-3 form-group">
+            </div> --}}
+            {{!-- <div class="col-sm-4 mb-3 form-group">
               <label for="tel">Phone</label>
-              <input type="tel" name="phone" class="form-control" id="tel" placeholder="Enter Your Contact Number." required>
+              <input type="tel" name="phone" class="form-control" id="tel" placeholder="Enter WhatsApp Number." required>
+            </div> --}}
+            <div class="col-sm-12 col-md-6 mb-3 form-group">
+              <label for="tel">Phone</label>
+              <input type="tel" name="phone" class="form-control" value="{{formData.phone}}" id="tel" placeholder="Enter Your Phone Number" required>
             </div>
+            <div class="col-sm-12 col-md-6 mb-3 form-group">
+              <label for="tel">WhatsApp Number</label>
+              <input type="tel" name="whatsapp_num" class="form-control" value="{{formData.whatsapp_num}}" id="tel" placeholder="Enter WhatsApp Number" required>
+            </div>
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <label for="occupation">Occupation</label>
+              <input type="text" name="occupation" class="form-control" value="{{formData.occupation}}" id="occupation" placeholder="e.g., student, entrepreneur, doctor, etc. " required>
+            </div>
+            <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <label for="Date">Date Of Birth</label>
+              <input type="Date" name="dob" class="form-control" value="{{formData.dob}}" id="Date" placeholder="" required>
+            </div>
+
             {{!-- <div class="col-sm-12 d-flex align-items-center">
               <input type="checkbox" class="form-check d-inline" id="chb" required>
               <label for="chb" class="form-check-label">&nbsp;I accept all terms and conditions.</label>
             </div> --}}
+
+            <div class="col-md-12 mb-3 form-group">
+              <label for="image">Passport</label>
+              <input type="file" name="avatar" class="form-control" id="avatar" placeholder="" required>
+            </div>
+
 
             <div class="col-sm-12 form-group mb-0  text-center">
               <button class="btn btn-primary float-right">Submit</button>
             </div>
 
           </div>
-        </form>
       </div>
 
       </div>

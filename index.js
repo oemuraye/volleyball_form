@@ -39,15 +39,15 @@ app.get("*", (req, res) => {
   res.redirect("/error"); // Redirect to the error page
 });
 
-app.listen(PORT, () => {
-  console.log(` server started on port http://localhost:${PORT} `);
-});
+// app.listen(PORT, () => {
+//   console.log(` server started on port http://localhost:${PORT} `);
+// });
 
 
-// const main = async () => {
-//     await mongoose.connect(connectionURL);
-// }
+const main = async () => {
+    await mongoose.connect(connectionURL);
+}
 
-// main().then(() =>
-//     app.listen(PORT, () => console.log(`Server is up on port http://localhost:${PORT}`))
-// ).catch((error) => console.log(error.message));;
+main().then(() =>
+    app.listen(PORT, () => console.log(`Server is up on port http://localhost:${PORT}`))
+).catch((error) => console.log(error.message));;
