@@ -43,7 +43,6 @@ app.get("*", (req, res) => {
 //   console.log(` server started on port http://localhost:${PORT} `);
 // });
 
-
 const main = async () => {
     await mongoose.connect(connectionURL);
 }

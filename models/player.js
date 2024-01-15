@@ -10,8 +10,6 @@ const playerSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
-    unique: true,
   },
   profile_pic: {
     type: String,
@@ -36,6 +34,7 @@ const playerSchema = new mongoose.Schema({
   whatsapp_number: {
     type: Number,
     required: true,
+    // unique: true,
   },
   occupation: {
     type: String,

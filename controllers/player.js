@@ -56,7 +56,8 @@ function checkFileType(file, cb) {
     const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const errors = [];
 
-    const existingPlayer = await Player.findOne({ whatsapp_num });
+    const existingPlayer = await Player.findOne({ email });
+    const existingPlayerNum = await Player.findOne({ whatsapp_number: whatsapp_num });
 
     // Check required fields
     if (
@@ -73,7 +74,7 @@ function checkFileType(file, cb) {
     }
 
     if (gender === "none") {
-      errors.push("Select gender");
+      errors.push("Please choose a gender");
     }
 
     // Check email
@@ -81,17 +82,20 @@ function checkFileType(file, cb) {
       errors.push("Use a valid Email address");
     }
     // Check if email already exists
-    if (existingPlayer) {
+    if (existingPlayer ) {
       errors.push("A Player with this email already exists");
+    }
+    if (existingPlayerNum ) {
+      errors.push("A Player with this number already exists");
     }
 
     if (errors.length > 0) {
       req.flash("error", errors);
-      req.flash("formData", { first_name, last_name, email, address, dob, phone, occupation, whatsapp_num });
+      req.flash("formData", { first_name, middle_name, last_name, email, address, dob, phone, occupation, whatsapp_num });
       res.redirect("/");
     } else {
       upload(req, res, async (err) => {
-        const maxSize = 1000000; // 1MB
+        const maxSize = 2000000; // 2MB
         if (!req.file){
           // Handle error if req.file does not exist
           req.flash("error", "Upload an image");
@@ -99,7 +103,7 @@ function checkFileType(file, cb) {
           res.redirect("/");
         } else if (req.file.size > maxSize) {
           // A Multer error occurred when uploading
-          req.flash("error", "Image size exceeds 1mb");
+          req.flash("error", "Image size exceeds 2mb");
           req.flash("formData", { first_name, last_name, middle_name, email, address, dob, phone, occupation, whatsapp_num });
           res.redirect("/");
         } else if (err instanceof multer.MulterError && err.code === "Invalid file type") {
@@ -113,8 +117,8 @@ function checkFileType(file, cb) {
           await Player.create({
             name: `${first_name} ${middle_name} ${last_name}`,
             email,
-            contact: phone,
-            whatsapp_number: whatsapp_num,
+            contact: `+234${phone.slice(-10)}`,
+            whatsapp_number: `+234${whatsapp_num.slice(-10)}`,
             date_of_birth: dob,
             address,
             gender,
@@ -133,6 +137,6 @@ function checkFileType(file, cb) {
     console.error(error);
     req.flash("error", "An error occurred while registering");
     req.flash("formData", { first_name, middle_name, last_name, email, address, dob, phone, occupation, whatsapp_num });
-    res.redirect("/error");
+    res.render("/error");
   }
 };
