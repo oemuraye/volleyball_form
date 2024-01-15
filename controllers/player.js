@@ -117,8 +117,8 @@ function checkFileType(file, cb) {
           await Player.create({
             name: `${first_name} ${middle_name} ${last_name}`,
             email,
-            contact: `+234${phone.slice(-10)}`,
-            whatsapp_number: `+234${whatsapp_num.slice(-10)}`,
+            contact: `+234${phone.slice(-8)}`,
+            whatsapp_number: `+234${whatsapp_num.slice(-8)}`,
             date_of_birth: dob,
             address,
             gender,
