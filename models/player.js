@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
 
 const playerSchema = new mongoose.Schema({
-  id: {
+  first_name: {
+    type: String,
+    required: true,
+  },
+  middle_name: {
     type: String,
   },
-  name: {
+  last_name: {
     type: String,
     required: true,
   },

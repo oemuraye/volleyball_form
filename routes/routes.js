@@ -1,5 +1,5 @@
 import express from "express";
-import { deletedTeamPlayer, errorPage, getTeamPlayer, homePage, successPage, teamPage } from "../controllers/pages.js";
+import { deletedTeamPlayer, errorPage, getPlayer, getTeamPlayer, homePage, successPage, teamPage } from "../controllers/pages.js";
 import { register, upload } from "../controllers/player.js";
 
 const router = express.Router();
@@ -14,6 +14,7 @@ router.post("/register", upload, register);
 // View all entries
 router.get("/team", teamPage);
 
+// router.get("/show-player/:id", getPlayer);
 router.get("/show/:id", getTeamPlayer);
 router.post("/delete/:id", deletedTeamPlayer);
 

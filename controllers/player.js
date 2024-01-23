@@ -115,7 +115,9 @@ function checkFileType(file, cb) {
           // No errors occurred when uploading
           // const hashedPassword = await bcrypt.hash(password, 10);
           await Player.create({
-            name: `${first_name} ${middle_name} ${last_name}`,
+            first_name,
+            middle_name,
+            last_name,
             email,
             contact: `+234${phone.slice(-10)}`,
             whatsapp_number: `+234${whatsapp_num.slice(-10)}`,
