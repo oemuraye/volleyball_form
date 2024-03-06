@@ -1,4 +1,7 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
 import player from "../models/player.js";
 
@@ -71,8 +74,13 @@ export const deletedTeamPlayer = async (req, res) => {
     
         if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
     
+        // Remove player image from the 'upload' folder
+        const __filename = fileURLToPath(import.meta.url); // Getting current file's path
+        const imagePath = path.join(path.dirname(__filename), '..', 'assets', 'uploads', singlePlayer.profile_pic); 
+        fs.unlinkSync(imagePath);
+
         req.flash("success_msg", `Player ${singlePlayer.name} has been deleted successfully`);
-        res.render("showMembers");
+        res.redirect("/team");
     } catch (error) {
         console.error('Error fetching team members:', error);
         res.render('error');
