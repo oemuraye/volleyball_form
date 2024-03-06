@@ -1,7 +1,7 @@
-<main>  
+<main class="px-1">  
   <div class="container card my-5">
   <form action="/register" method="post" enctype="multipart/form-data" class="mt-2">
-    <div class="form-container container">
+    <div class="form-container">
       <hr />
       <h4 class="text-info">
         <center>
@@ -12,36 +12,36 @@
 
       {{> flash }}
 
-      <div class="container reg-form mt-3">
+      <div class="container-fluid reg-form mt-3">
           <div class="jumbotron box8">
             <div class="row">
-              <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="name-f">First Name</label>
                 <input type="text" class="form-control" value="{{formData.first_name}}" name="first_name" id="name-f" placeholder="Enter your first name" required>
               </div>
-              <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="name-l">Last name</label>
                 <input type="text" class="form-control" value="{{formData.last_name}}" name="last_name" id="name-l" placeholder="Enter your last name" required>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="name-m">Middle name</label>
                 <input type="text" class="form-control" value="{{formData.middle_name}}" name="middle_name" id="name-m" placeholder="Enter your middle name (if any)">
               </div>
-              <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" value="{{formData.email}}" name="email" id="email" placeholder="Enter your email">
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="address-1">Address</label>
                 <input type="address" class="form-control" value="{{formData.address}}" name="address" id="address-1" placeholder="Locality/House/Street no" required>
               </div>
-              {{!-- <div class="col-md-6 col-sm-12 mb-3 form-group">
+              {{!-- <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="Country">Country</label>
                 <select class="form-control custom-select browser-default">
                   <option value="Afghanistan">Afghanistan</option>
@@ -290,7 +290,7 @@
                   <option value="Zimbabwe">Zimbabwe</option>
                 </select>
               </div> --}}
-              <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="sex">Gender</label>
                 <select id="sex" name="gender" class="form-control browser-default custom-select">
                   <option value="none">choose Gender</option>
@@ -536,11 +536,11 @@
             </div>
 
             <div class="row">
-              <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="occupation">Occupation</label>
                 <input type="text" name="occupation" class="form-control" value="{{formData.occupation}}" id="occupation" placeholder="e.g., student, entrepreneur, doctor, etc. " required>
               </div>
-              <div class="col-md-6 col-sm-12 mb-3 form-group">
+              <div class="col-sm-12 col-md-6 mb-3 form-group">
                 <label for="Date">Date Of Birth</label>
                 <input type="Date" name="dob" class="form-control" value="{{formData.dob}}" id="Date" placeholder="" required>
               </div>
